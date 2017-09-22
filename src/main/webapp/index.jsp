@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
     <link rel="stylesheet" href="css/bootstrap.css">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8"/>
         <title>Cálculo do IMC</title>
         <meta name="viewport" content="width=device-width">
     </head>
@@ -49,35 +49,56 @@
         <%
         //Inicio do Scriptlet.
         String alturaString = request.getParameter("altura");
-        float altura = Float.parseFloat(alturaString);
+        //int altura = Integer.parseInt(alturaString);
         String pesoString = request.getParameter("peso");
-        float peso = Float.parseFloat(pesoString);
-        float temp = peso / (altura*altura);
-        float imc = temp.toFixed(2);
+        //int peso = Integer.parseInt(pesoString);
+        //float imc = peso / (altura*altura);
+        int imc = 20;
+        %>
+        <div class="container">
+        <h3>O seu imc é </h3>
+        <%
         if(imc < 16){
-            alert("Seu imc é: " + imc + "\nMagreza grave!")
+            %>
+            <h3>Magreza grave!</h3>
+            <%
         }
         else if(imc < 17){
-            alert("Seu imc é: " + imc + "\nMagreza moderada!")
+            %>
+            <h3>Magreza moderada!</h3>
+            <%
         }
-        else if(imc < 18.5){
-            alert("Seu imc é: " + imc + "\nMagreza leve!")
+        else if(imc < 18){
+            %>
+            <h3>Magreza leve!</h3>
+            <%
         }
         else if(imc < 25){
-            alert("Seu imc é: " + imc + "\nVocê está saudável!")
+            %>
+            <h3>Você está saudável</h3>
+            <%
         }
         else if(imc < 30){
-            alert("Seu imc é: " + imc + "\nSobrepeso!")
+            %>
+            <h3>Sobrepeso!</h3>
+            <%
         }
         else if(imc < 35){
-            alert("Seu imc é: " + imc + "\nObesidade Grau 1!")
+            %>
+            <h3>Obesidade Grau 1!</h3>
+            <%
         }
         else if(imc < 40){
-            alert("Seu imc é: " + imc + "\nObesidade Grau 2 (severa)!")
+            %>
+            <h3>Obesidade Grau 2 (severa)!</h3>
+            <%
         }
         else{
-            alert("Seu imc é: " + imc + "\nObesidade Grau 3 (mórbida)!")
+            %>
+            <h3>Obesidade Grau Obesidade Grau 3 (mórbida)!</h3>
+            <%
         }
         %>
+        </div>
     </body>
 </html>
