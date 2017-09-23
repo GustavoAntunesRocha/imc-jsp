@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<%@ page contentType="text/html; charset=UTF-8" %>
+<html lang="en">
     <link rel="stylesheet" href="css/bootstrap.css">
     <head>
-        <meta charset="UTF-8"/>
+        <meta charset="UTF-8">
         <title>Cálculo do IMC</title>
         <meta name="viewport" content="width=device-width">
     </head>
@@ -22,10 +23,10 @@
             <form>
                 <dl>
                 <dt>Peso:</dt>
-                <input type="number" required="required" name="peso"/>
+                <input type="number" id="pesoId" placeholder="Peso" required="required" name="peso" step="0.01" min="0"/>
                 
                 <dt>Altura:</dt>
-                <input type="number" required="required" name="altura"/>
+                <input type="number" id="alturaId" placeholder="Altura" required="required" name="altura" step="0.01" min="0"/>
             
                 <dt>Sexo:</dt>
                 <p>
@@ -49,14 +50,13 @@
         <%
         //Inicio do Scriptlet.
         String alturaString = request.getParameter("altura");
-        //int altura = Integer.parseInt(alturaString);
+        Double altura = alturaString == null ? 0.0 : Double.parseDouble(alturaString);
         String pesoString = request.getParameter("peso");
-        //int peso = Integer.parseInt(pesoString);
-        //float imc = peso / (altura*altura);
-        int imc = 20;
+        Double peso = pesoString == null ? 0.0 : Double.parseDouble(pesoString);
+        Double imc = peso / (altura*altura);
         %>
         <div class="container">
-        <h3>O seu imc é </h3>
+        <h3>O seu imc é <%out.println(imc);%></h3>
         <%
         if(imc < 16){
             %>
